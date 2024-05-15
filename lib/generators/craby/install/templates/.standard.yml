@@ -1,0 +1,16 @@
+fix: false # default: false
+parallel: true # default: false
+format: progress # default: Standard::Formatter
+ruby_version: 3.3.0 # default: RUBY_VERSION
+default_ignores: true # default: true
+
+ignore: # default: []
+  - "bin/**/*"
+  - "config/environments/**/*"
+  - "db/schema.rb"
+  - "db/seeds.rb"
+  - "tmp/**/*"
+  - "vendor/**/*"
+
+plugins: # default: []
+  - standard-rails

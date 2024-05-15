@@ -1,0 +1,4 @@
+--require craby_helper
+--format documentation
+--force-color
+--order rand

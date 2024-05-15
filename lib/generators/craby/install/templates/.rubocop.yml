@@ -1,0 +1,20 @@
+require:
+  - rubocop-rails
+  - rubocop-factory_bot
+  - rubocop-capybara
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  TargetRailsVersion: 7.1
+  Exclude:
+    - "bin/**/*"
+    - "config/environments/**/*"
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "tmp/**/*"
+    - "vendor/**/*"
