@@ -53,6 +53,69 @@ And `.rspec` file in your root rails application:
 --order rand
 ```
 
+Create `.standard.yml` file in your root rails application:
+
+```yml
+ruby_version: 3.3
+```
+
+Create `.rubocop.yml` file in your root rails application:
+
+```yml
+require:
+  - rubocop-rails
+  - rubocop-factory_bot
+  - rubocop-capybara
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  TargetRailsVersion: 7.1
+  Exclude:
+    - "bin/**/*"
+    - "config/environments/**/*"
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "tmp/**/*"
+    - "vendor/**/*"
+```
+
+If your application was a full stack rails application you should create a `.erb-lint.yml` file:
+
+```yml
+EnableDefaultLinters: true
+linters:
+  ErbSafety:
+    enabled: true
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/TrailingEmptyLines:
+        Enabled: false
+      Layout/TrailingWhitespace:
+        Enabled: false
+      Rails/OutputSafety:
+        Enabled: false
+      Lint/UselessAssignment:
+        Enabled: false
+```
+
+And generate `bin/erblint`:
+
+```sh
+bin/bundle binstub erb_lint
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/craby.
