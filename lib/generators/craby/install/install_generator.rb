@@ -8,6 +8,7 @@ module Craby
       copy_file ".rspec", Rails.root.join(".rspec")
       copy_file ".rubocop.yml", Rails.root.join(".rubocop.yml")
       copy_file ".standard.yml", Rails.root.join(".standard.yml")
+      system "bin/bundle binstub brakeman rubocop rspec-core --force"
     end
   end
 end

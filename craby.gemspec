@@ -32,37 +32,39 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # https://github.com/presidentbeef/brakeman
-  spec.add_dependency "brakeman", "~> 6"
+  spec.add_dependency "brakeman"
   # https://github.com/standardrb/standard#usage
-  spec.add_dependency "standard", "~> 1"
+  spec.add_dependency "standard"
   # https://github.com/standardrb/standard-rails#usage
-  spec.add_dependency "standard-rails", "~> 1"
+  spec.add_dependency "standard-rails"
   # https://github.com/rubocop/rubocop-rspec#usage
-  spec.add_dependency "rubocop-rspec", "~> 2"
+  spec.add_dependency "rubocop-rspec"
   # https://github.com/rubocop/rubocop-capybara#usage
-  spec.add_dependency "rubocop-capybara", "~> 2"
+  spec.add_dependency "rubocop-capybara"
   # https://github.com/rubocop/rubocop-factory_bot#usage
-  spec.add_dependency "rubocop-factory_bot", "~> 2"
+  spec.add_dependency "rubocop-factory_bot"
   # https://github.com/Shopify/erb-lint#installation
-  spec.add_dependency "erb_lint", "~> 0"
+  spec.add_dependency "erb_lint"
   # https://github.com/thoughtbot/factory_bot_rails
-  spec.add_dependency "factory_bot_rails", "~> 6"
+  spec.add_dependency "factory_bot_rails"
   # https://github.com/stympy/faker
-  spec.add_dependency "faker", "~> 3"
+  spec.add_dependency "faker"
   # https://github.com/thoughtbot/shoulda-matchers
-  spec.add_dependency "shoulda-matchers", "~> 5"
+  spec.add_dependency "shoulda-matchers"
   # https://github.com/rspec/rspec-rails#installation
-  spec.add_dependency "rspec-rails", "~> 5"
+  spec.add_dependency "rspec-rails"
   # https://github.com/DatabaseCleaner/database_cleaner
-  spec.add_dependency "database_cleaner", "~> 1"
+  spec.add_dependency "database_cleaner"
   # https://github.com/teamcapybara/capybara#setup
-  spec.add_dependency "capybara", "~> 2"
+  spec.add_dependency "capybara"
   # https://github.com/SeleniumHQ/selenium/tree/trunk/rb#install
-  spec.add_dependency "selenium-webdriver", "~> 3"
+  spec.add_dependency "selenium-webdriver"
   # https://github.com/simplecov-ruby/simplecov#getting-started
-  spec.add_dependency "simplecov", "~> 0"
+  spec.add_dependency "simplecov"
   # https://github.com/vicentllongo/simplecov-json#usage
-  spec.add_dependency "simplecov-json", "~> 0"
+  spec.add_dependency "simplecov-json"
   # https://github.com/bblimke/webmock#rspec
-  spec.add_dependency "webmock", "~> 2"
+  spec.add_dependency "webmock"
+  # https://github.com/rails/rails-controller-testing#rspec
+  spec.add_dependency "rails-controller-testing"
 end
