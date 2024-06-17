@@ -65,6 +65,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov-json"
   # https://github.com/bblimke/webmock#rspec
   spec.add_dependency "webmock"
+  # https://github.com/vcr/vcr#usage
+  spec.add_dependency "vcr"
   # https://github.com/rails/rails-controller-testing#rspec
   spec.add_dependency "rails-controller-testing"
 end
