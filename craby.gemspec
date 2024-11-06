@@ -43,6 +43,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubocop-capybara"
   # https://github.com/rubocop/rubocop-factory_bot#usage
   spec.add_dependency "rubocop-factory_bot"
+  # https://github.com/rubocop/rubocop-rspec_rails#usage
+  spec.add_dependency "rubocop-rspec_rails"
   # https://github.com/Shopify/erb-lint#installation
   spec.add_dependency "erb_lint"
   # https://github.com/thoughtbot/factory_bot_rails
