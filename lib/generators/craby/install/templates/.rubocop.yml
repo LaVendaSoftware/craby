@@ -3,6 +3,7 @@ require:
   - rubocop-factory_bot
   - rubocop-capybara
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 inherit_gem:
   standard: config/base.yml
