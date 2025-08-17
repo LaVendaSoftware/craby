@@ -69,7 +69,7 @@ require:
   - rubocop-rspec
 
 inherit_gem:
-  craby: config/base.yml
+  standard: config/base.yml
 
 AllCops:
   NewCops: enable
