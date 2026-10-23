@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["Lavenda Software"]
   spec.email = ["lavenda@lavenda.com.br"]
 
-  spec.summary = "Craby is just a quick test suite setup for Rails application"
+  spec.summary = "Craby is just a quick test suite setup (RSpec or Minitest) for Rails application"
   spec.homepage = "https://github.com/LavendaSoftware/craby"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = ">= 3.4.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
@@ -45,12 +45,18 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubocop-factory_bot"
   # https://github.com/rubocop/rubocop-rspec_rails#usage
   spec.add_dependency "rubocop-rspec_rails"
+  # https://github.com/rubocop/rubocop-minitest#usage
+  spec.add_dependency "rubocop-minitest"
+  # https://github.com/rubysec/bundler-audit#synopsis
+  spec.add_dependency "bundler-audit"
   # https://github.com/Shopify/erb-lint#installation
   spec.add_dependency "erb_lint"
   # https://github.com/thoughtbot/factory_bot_rails
   spec.add_dependency "factory_bot_rails"
   # https://github.com/stympy/faker
   spec.add_dependency "faker"
+  # https://github.com/bernardo/cpf_faker
+  spec.add_dependency "cpf_faker"
   # https://github.com/thoughtbot/shoulda-matchers
   spec.add_dependency "shoulda-matchers"
   # https://github.com/rspec/rspec-rails#installation

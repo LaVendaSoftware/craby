@@ -1,13 +1,13 @@
 # Craby
 
-Craby is just a quick test suite setup that uses RSpec with Shoulda::Matchers, Capybara with Selenium, DatabaseCleaner, FactoryBot, Faker, Standard Ruby as default. And it also has webmock and VRC for applications that need to test third-party services
+Craby is just a quick test suite setup that uses RSpec (or Minitest) with Shoulda::Matchers, Capybara with Selenium, DatabaseCleaner, FactoryBot, Faker (with `Faker::CPF` and `Faker::CNPJ` from cpf_faker), Standard Ruby and bundler-audit as default. And it also has webmock and VRC for applications that need to test third-party services
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ru
-gem "craby", "~> 0.0.1"
+gem "craby", "~> 0.2"
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ Or install it yourself as:
 bundle add craby
 ```
 
-## Usage
+## Usage (RSpec)
 
 You can use a Rails generator to create setup files:
 
@@ -115,6 +115,77 @@ And generate `bin/erblint`:
 ```sh
 bin/bundle binstub erb_lint
 ```
+
+## Usage (Minitest)
+
+Run the generator with the `minitest` test framework:
+
+```sh
+rails g craby:install --test-framework=minitest
+```
+
+It replaces `test/test_helper.rb` with:
+
+```rb
+ENV["RAILS_ENV"] ||= "test"
+
+require "craby"
+
+Craby::Setup.call([
+  "craby/simplecov",
+  File.expand_path("config/environment", File.dirname(__dir__)),
+  "craby/minitest/default"
+])
+```
+
+`craby/minitest/default` loads `rails/test_help`, files in `test/support`, Capybara, FactoryBot, Faker, Shoulda::Matchers and Craby assertions into `ActiveSupport::TestCase`.
+
+Optional files you can add to the `Craby::Setup.call` list:
+
+- `craby/minitest/webmock`: blocks external HTTP requests
+- `craby/minitest/vcr`: records cassettes in `test/cassettes`
+- `craby/minitest/database_cleaner`: truncates the database after each test (only needed when transactional tests are not enough)
+
+Use the Chrome driver in your system tests:
+
+```rb
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  driven_by :chrome
+end
+```
+
+Shoulda::Matchers and Craby assertions:
+
+```rb
+class UserTest < ActiveSupport::TestCase
+  test "validations" do
+    assert_accepts validate_presence_of(:name), User.new
+    assert_rejects validate_presence_of(:nickname), User.new
+  end
+end
+
+class UsersTest < ApplicationSystemTestCase
+  test "shows the user" do
+    user = create(:user)
+    visit user_path(user)
+
+    assert_content_for [user.name, user.email]
+    assert_resource_values_for user, %i[name email]
+  end
+end
+```
+
+The generator also creates a `.rubocop.yml` with `rubocop-minitest` instead of the RSpec plugins.
+
+## bundler-audit
+
+The generator also creates `bin/bundler-audit` and `config/bundler-audit.yml` (both are skipped when they already exist, like in Rails 8.1+ apps). Run the audit with:
+
+```sh
+bin/bundler-audit
+```
+
+CVEs that don't apply to your application go in the `ignore` list of `config/bundler-audit.yml`.
 
 ## Contributing
 
