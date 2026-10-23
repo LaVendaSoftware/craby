@@ -47,12 +47,16 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubocop-rspec_rails"
   # https://github.com/rubocop/rubocop-minitest#usage
   spec.add_dependency "rubocop-minitest"
+  # https://github.com/rubysec/bundler-audit#synopsis
+  spec.add_dependency "bundler-audit"
   # https://github.com/Shopify/erb-lint#installation
   spec.add_dependency "erb_lint"
   # https://github.com/thoughtbot/factory_bot_rails
   spec.add_dependency "factory_bot_rails"
   # https://github.com/stympy/faker
   spec.add_dependency "faker"
+  # https://github.com/bernardo/cpf_faker
+  spec.add_dependency "cpf_faker"
   # https://github.com/thoughtbot/shoulda-matchers
   spec.add_dependency "shoulda-matchers"
   # https://github.com/rspec/rspec-rails#installation

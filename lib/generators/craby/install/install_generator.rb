@@ -8,6 +8,9 @@ module Craby
     desc "Generates Craby setup files."
     def create_setup_files
       copy_file ".standard.yml", Rails.root.join(".standard.yml")
+      copy_file "config/bundler-audit.yml", Rails.root.join("config/bundler-audit.yml"), skip: true
+      copy_file "bin/bundler-audit", Rails.root.join("bin/bundler-audit"), skip: true
+      chmod Rails.root.join("bin/bundler-audit"), 0o755
 
       if options[:test_framework] == "minitest"
         create_minitest_files

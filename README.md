@@ -1,6 +1,6 @@
 # Craby
 
-Craby is just a quick test suite setup that uses RSpec (or Minitest) with Shoulda::Matchers, Capybara with Selenium, DatabaseCleaner, FactoryBot, Faker, Standard Ruby as default. And it also has webmock and VRC for applications that need to test third-party services
+Craby is just a quick test suite setup that uses RSpec (or Minitest) with Shoulda::Matchers, Capybara with Selenium, DatabaseCleaner, FactoryBot, Faker (with `Faker::CPF` and `Faker::CNPJ` from cpf_faker), Standard Ruby and bundler-audit as default. And it also has webmock and VRC for applications that need to test third-party services
 
 ## Installation
 
@@ -176,6 +176,16 @@ end
 ```
 
 The generator also creates a `.rubocop.yml` with `rubocop-minitest` instead of the RSpec plugins.
+
+## bundler-audit
+
+The generator also creates `bin/bundler-audit` and `config/bundler-audit.yml` (both are skipped when they already exist, like in Rails 8.1+ apps). Run the audit with:
+
+```sh
+bin/bundler-audit
+```
+
+CVEs that don't apply to your application go in the `ignore` list of `config/bundler-audit.yml`.
 
 ## Contributing
 
